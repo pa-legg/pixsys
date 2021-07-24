@@ -7,4 +7,5 @@ The PixSys tool was developed as part of our research on malware dynamic behavio
 - Example Data Output for generating plots to be uploaded
 - Example Virtual Machine for conducting experiment to be uploaded
 
+Work conducted by <a href="https://github.com/snoozyrests">Jacob Williams</a> and <a href="http://plegg.me.uk>Phil Legg</a>
 
