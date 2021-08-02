@@ -20,8 +20,8 @@ pcap_data = []
 net_data = []
 screen_data = []
 
-#input_name = '20210705_wannacry'
-input_name = '20210722_notpetya'
+input_name = '20210705_wannacry'
+#input_name = '20210722_notpetya'
 
 input_directory = './data/' + input_name
 output_screenshot_stack_file_name = input_name + '.png'
@@ -87,6 +87,10 @@ def load_network_csv_data():
 		minutes = int(float(row['Time'].split(":")[1]))
 		seconds = int(float(row['Time'].split(":")[2]))
 		#print (int(float(seconds)), " --- ", last_seconds)
+		if d==0:
+			print ("First row: ", row)
+		if d==len(data)-1:
+			print ("Last row: ", row)
 
 		if (minutes >= start_minute) and (minutes <= end_minute):
 			if (seconds >= 0 and seconds < 15 and last_seconds >= 45 and last_seconds < 60):
@@ -149,6 +153,10 @@ def perform_data_extraction():
 
 		for i in range(len(vboxmetrics_data)):
 			example = vboxmetrics_data[i]
+			if i==0:
+				print ("First file: ", example)
+			if i==len(vboxmetrics_data)-1:
+				print ("Last file: ", example)
 			#print (example)
 			with open(input_directory + "/" + example, "r") as fd:
 				data = fd.read()
@@ -382,6 +390,10 @@ def perform_data_extraction():
 
 		for i in range(len(json_data)):
 			ddd = json_data[i]
+			if i==0:
+				print ("First data:", ddd)
+			if i==len(json_data)-1:
+				print ("Last data:", ddd)
 			if (show_diagnostic_print):
 				print (i, ddd['dt_now'], ddd['machine']) # now we can see time by machine
 			if ddd['machine'] not in process_by_machine:
